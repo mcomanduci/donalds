@@ -1,5 +1,5 @@
 'use client';
-import { MenuCategory, Prisma } from '@prisma/client';
+import { Prisma } from '@prisma/client';
 import { ClockIcon } from 'lucide-react';
 import Image from 'next/image';
 import { useState } from 'react';
@@ -36,9 +36,15 @@ const RestaurantCategories = ({ restaurant }: RestaurantCategoriesProps) => {
 
   return (
     <>
-      <div className="relative z-50 mt-[-3rem] rounded-t-3xl border bg-white p-5">
+      <div className="relative z-50 mt-[-3rem] rounded-t-3xl border-b border-solid bg-white p-5">
         <div className="flex items-center gap-3">
-          <Image src={restaurant.avatarImageUrl} alt={restaurant.name} width={45} height={45} />
+          <Image
+            src={restaurant.avatarImageUrl}
+            alt={restaurant.name}
+            width={45}
+            height={45}
+            priority
+          />
           <div className="">
             <h2 className="text-lg font-semibold">{restaurant.name}</h2>
             <p className="text-xs opacity-55">{restaurant.description}</p>
@@ -51,7 +57,7 @@ const RestaurantCategories = ({ restaurant }: RestaurantCategoriesProps) => {
       </div>
 
       <ScrollArea className="-mr-5 w-full p-5 px-0">
-        <ScrollBar orientation="horizontal" />
+        <ScrollBar orientation="horizontal" className="hidden md:flex" />
         <ScrollArea className="w-full pl-5">
           <div className="flex w-max space-x-4">
             {restaurant.menuCategories.map((category) => (
