@@ -46,19 +46,18 @@ export namespace $Enums {
   export const OrderStatus: {
   PENDING: 'PENDING',
   IN_PREPARATION: 'IN_PREPARATION',
-  FINISHED: 'FINISHED',
-  CANCELLED: 'CANCELLED'
+  FINISHED: 'FINISHED'
 };
 
 export type OrderStatus = (typeof OrderStatus)[keyof typeof OrderStatus]
 
 
-export const ConsuptionMethod: {
+export const ConsumptionMethod: {
   TAKEAWAY: 'TAKEAWAY',
   DINE_IN: 'DINE_IN'
 };
 
-export type ConsuptionMethod = (typeof ConsuptionMethod)[keyof typeof ConsuptionMethod]
+export type ConsumptionMethod = (typeof ConsumptionMethod)[keyof typeof ConsumptionMethod]
 
 }
 
@@ -66,9 +65,9 @@ export type OrderStatus = $Enums.OrderStatus
 
 export const OrderStatus: typeof $Enums.OrderStatus
 
-export type ConsuptionMethod = $Enums.ConsuptionMethod
+export type ConsumptionMethod = $Enums.ConsumptionMethod
 
-export const ConsuptionMethod: typeof $Enums.ConsuptionMethod
+export const ConsumptionMethod: typeof $Enums.ConsumptionMethod
 
 /**
  * ##  Prisma Client ʲˢ
@@ -4866,7 +4865,7 @@ export namespace Prisma {
     id: number | null
     total: number | null
     status: $Enums.OrderStatus | null
-    consuptionMethod: $Enums.ConsuptionMethod | null
+    consumptionMethod: $Enums.ConsumptionMethod | null
     restaurantId: string | null
     createdAt: Date | null
     updatedAt: Date | null
@@ -4876,7 +4875,7 @@ export namespace Prisma {
     id: number | null
     total: number | null
     status: $Enums.OrderStatus | null
-    consuptionMethod: $Enums.ConsuptionMethod | null
+    consumptionMethod: $Enums.ConsumptionMethod | null
     restaurantId: string | null
     createdAt: Date | null
     updatedAt: Date | null
@@ -4886,7 +4885,7 @@ export namespace Prisma {
     id: number
     total: number
     status: number
-    consuptionMethod: number
+    consumptionMethod: number
     restaurantId: number
     createdAt: number
     updatedAt: number
@@ -4908,7 +4907,7 @@ export namespace Prisma {
     id?: true
     total?: true
     status?: true
-    consuptionMethod?: true
+    consumptionMethod?: true
     restaurantId?: true
     createdAt?: true
     updatedAt?: true
@@ -4918,7 +4917,7 @@ export namespace Prisma {
     id?: true
     total?: true
     status?: true
-    consuptionMethod?: true
+    consumptionMethod?: true
     restaurantId?: true
     createdAt?: true
     updatedAt?: true
@@ -4928,7 +4927,7 @@ export namespace Prisma {
     id?: true
     total?: true
     status?: true
-    consuptionMethod?: true
+    consumptionMethod?: true
     restaurantId?: true
     createdAt?: true
     updatedAt?: true
@@ -5025,7 +5024,7 @@ export namespace Prisma {
     id: number
     total: number
     status: $Enums.OrderStatus
-    consuptionMethod: $Enums.ConsuptionMethod
+    consumptionMethod: $Enums.ConsumptionMethod
     restaurantId: string
     createdAt: Date
     updatedAt: Date
@@ -5054,7 +5053,7 @@ export namespace Prisma {
     id?: boolean
     total?: boolean
     status?: boolean
-    consuptionMethod?: boolean
+    consumptionMethod?: boolean
     restaurantId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
@@ -5067,7 +5066,7 @@ export namespace Prisma {
     id?: boolean
     total?: boolean
     status?: boolean
-    consuptionMethod?: boolean
+    consumptionMethod?: boolean
     restaurantId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
@@ -5078,7 +5077,7 @@ export namespace Prisma {
     id?: boolean
     total?: boolean
     status?: boolean
-    consuptionMethod?: boolean
+    consumptionMethod?: boolean
     restaurantId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
@@ -5089,13 +5088,13 @@ export namespace Prisma {
     id?: boolean
     total?: boolean
     status?: boolean
-    consuptionMethod?: boolean
+    consumptionMethod?: boolean
     restaurantId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type OrderOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "total" | "status" | "consuptionMethod" | "restaurantId" | "createdAt" | "updatedAt", ExtArgs["result"]["order"]>
+  export type OrderOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "total" | "status" | "consumptionMethod" | "restaurantId" | "createdAt" | "updatedAt", ExtArgs["result"]["order"]>
   export type OrderInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     restaurant?: boolean | RestaurantDefaultArgs<ExtArgs>
     orderProducts?: boolean | Order$orderProductsArgs<ExtArgs>
@@ -5118,7 +5117,7 @@ export namespace Prisma {
       id: number
       total: number
       status: $Enums.OrderStatus
-      consuptionMethod: $Enums.ConsuptionMethod
+      consumptionMethod: $Enums.ConsumptionMethod
       restaurantId: string
       createdAt: Date
       updatedAt: Date
@@ -5550,7 +5549,7 @@ export namespace Prisma {
     readonly id: FieldRef<"Order", 'Int'>
     readonly total: FieldRef<"Order", 'Float'>
     readonly status: FieldRef<"Order", 'OrderStatus'>
-    readonly consuptionMethod: FieldRef<"Order", 'ConsuptionMethod'>
+    readonly consumptionMethod: FieldRef<"Order", 'ConsumptionMethod'>
     readonly restaurantId: FieldRef<"Order", 'String'>
     readonly createdAt: FieldRef<"Order", 'DateTime'>
     readonly updatedAt: FieldRef<"Order", 'DateTime'>
@@ -7185,7 +7184,7 @@ export namespace Prisma {
     id: 'id',
     total: 'total',
     status: 'status',
-    consuptionMethod: 'consuptionMethod',
+    consumptionMethod: 'consumptionMethod',
     restaurantId: 'restaurantId',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
@@ -7299,16 +7298,16 @@ export namespace Prisma {
 
 
   /**
-   * Reference to a field of type 'ConsuptionMethod'
+   * Reference to a field of type 'ConsumptionMethod'
    */
-  export type EnumConsuptionMethodFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ConsuptionMethod'>
+  export type EnumConsumptionMethodFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ConsumptionMethod'>
     
 
 
   /**
-   * Reference to a field of type 'ConsuptionMethod[]'
+   * Reference to a field of type 'ConsumptionMethod[]'
    */
-  export type ListEnumConsuptionMethodFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ConsuptionMethod[]'>
+  export type ListEnumConsumptionMethodFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ConsumptionMethod[]'>
     
   /**
    * Deep Input Types
@@ -7348,11 +7347,11 @@ export namespace Prisma {
 
   export type RestaurantWhereUniqueInput = Prisma.AtLeast<{
     id?: string
-    slug?: string
     AND?: RestaurantWhereInput | RestaurantWhereInput[]
     OR?: RestaurantWhereInput[]
     NOT?: RestaurantWhereInput | RestaurantWhereInput[]
     name?: StringFilter<"Restaurant"> | string
+    slug?: StringFilter<"Restaurant"> | string
     description?: StringFilter<"Restaurant"> | string
     avatarImageUrl?: StringFilter<"Restaurant"> | string
     coverImageUrl?: StringFilter<"Restaurant"> | string
@@ -7361,7 +7360,7 @@ export namespace Prisma {
     menuCategories?: MenuCategoryListRelationFilter
     products?: ProductListRelationFilter
     orders?: OrderListRelationFilter
-  }, "id" | "slug">
+  }, "id">
 
   export type RestaurantOrderByWithAggregationInput = {
     id?: SortOrder
@@ -7544,7 +7543,7 @@ export namespace Prisma {
     id?: IntFilter<"Order"> | number
     total?: FloatFilter<"Order"> | number
     status?: EnumOrderStatusFilter<"Order"> | $Enums.OrderStatus
-    consuptionMethod?: EnumConsuptionMethodFilter<"Order"> | $Enums.ConsuptionMethod
+    consumptionMethod?: EnumConsumptionMethodFilter<"Order"> | $Enums.ConsumptionMethod
     restaurantId?: StringFilter<"Order"> | string
     createdAt?: DateTimeFilter<"Order"> | Date | string
     updatedAt?: DateTimeFilter<"Order"> | Date | string
@@ -7556,7 +7555,7 @@ export namespace Prisma {
     id?: SortOrder
     total?: SortOrder
     status?: SortOrder
-    consuptionMethod?: SortOrder
+    consumptionMethod?: SortOrder
     restaurantId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -7571,7 +7570,7 @@ export namespace Prisma {
     NOT?: OrderWhereInput | OrderWhereInput[]
     total?: FloatFilter<"Order"> | number
     status?: EnumOrderStatusFilter<"Order"> | $Enums.OrderStatus
-    consuptionMethod?: EnumConsuptionMethodFilter<"Order"> | $Enums.ConsuptionMethod
+    consumptionMethod?: EnumConsumptionMethodFilter<"Order"> | $Enums.ConsumptionMethod
     restaurantId?: StringFilter<"Order"> | string
     createdAt?: DateTimeFilter<"Order"> | Date | string
     updatedAt?: DateTimeFilter<"Order"> | Date | string
@@ -7583,7 +7582,7 @@ export namespace Prisma {
     id?: SortOrder
     total?: SortOrder
     status?: SortOrder
-    consuptionMethod?: SortOrder
+    consumptionMethod?: SortOrder
     restaurantId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -7601,7 +7600,7 @@ export namespace Prisma {
     id?: IntWithAggregatesFilter<"Order"> | number
     total?: FloatWithAggregatesFilter<"Order"> | number
     status?: EnumOrderStatusWithAggregatesFilter<"Order"> | $Enums.OrderStatus
-    consuptionMethod?: EnumConsuptionMethodWithAggregatesFilter<"Order"> | $Enums.ConsuptionMethod
+    consumptionMethod?: EnumConsumptionMethodWithAggregatesFilter<"Order"> | $Enums.ConsumptionMethod
     restaurantId?: StringWithAggregatesFilter<"Order"> | string
     createdAt?: DateTimeWithAggregatesFilter<"Order"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Order"> | Date | string
@@ -7920,8 +7919,8 @@ export namespace Prisma {
 
   export type OrderCreateInput = {
     total: number
-    status?: $Enums.OrderStatus
-    consuptionMethod: $Enums.ConsuptionMethod
+    status: $Enums.OrderStatus
+    consumptionMethod: $Enums.ConsumptionMethod
     createdAt?: Date | string
     updatedAt?: Date | string
     restaurant: RestaurantCreateNestedOneWithoutOrdersInput
@@ -7931,8 +7930,8 @@ export namespace Prisma {
   export type OrderUncheckedCreateInput = {
     id?: number
     total: number
-    status?: $Enums.OrderStatus
-    consuptionMethod: $Enums.ConsuptionMethod
+    status: $Enums.OrderStatus
+    consumptionMethod: $Enums.ConsumptionMethod
     restaurantId: string
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -7942,7 +7941,7 @@ export namespace Prisma {
   export type OrderUpdateInput = {
     total?: FloatFieldUpdateOperationsInput | number
     status?: EnumOrderStatusFieldUpdateOperationsInput | $Enums.OrderStatus
-    consuptionMethod?: EnumConsuptionMethodFieldUpdateOperationsInput | $Enums.ConsuptionMethod
+    consumptionMethod?: EnumConsumptionMethodFieldUpdateOperationsInput | $Enums.ConsumptionMethod
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     restaurant?: RestaurantUpdateOneRequiredWithoutOrdersNestedInput
@@ -7953,7 +7952,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     total?: FloatFieldUpdateOperationsInput | number
     status?: EnumOrderStatusFieldUpdateOperationsInput | $Enums.OrderStatus
-    consuptionMethod?: EnumConsuptionMethodFieldUpdateOperationsInput | $Enums.ConsuptionMethod
+    consumptionMethod?: EnumConsumptionMethodFieldUpdateOperationsInput | $Enums.ConsumptionMethod
     restaurantId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -7963,8 +7962,8 @@ export namespace Prisma {
   export type OrderCreateManyInput = {
     id?: number
     total: number
-    status?: $Enums.OrderStatus
-    consuptionMethod: $Enums.ConsuptionMethod
+    status: $Enums.OrderStatus
+    consumptionMethod: $Enums.ConsumptionMethod
     restaurantId: string
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -7973,7 +7972,7 @@ export namespace Prisma {
   export type OrderUpdateManyMutationInput = {
     total?: FloatFieldUpdateOperationsInput | number
     status?: EnumOrderStatusFieldUpdateOperationsInput | $Enums.OrderStatus
-    consuptionMethod?: EnumConsuptionMethodFieldUpdateOperationsInput | $Enums.ConsuptionMethod
+    consumptionMethod?: EnumConsumptionMethodFieldUpdateOperationsInput | $Enums.ConsumptionMethod
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -7982,7 +7981,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     total?: FloatFieldUpdateOperationsInput | number
     status?: EnumOrderStatusFieldUpdateOperationsInput | $Enums.OrderStatus
-    consuptionMethod?: EnumConsuptionMethodFieldUpdateOperationsInput | $Enums.ConsuptionMethod
+    consumptionMethod?: EnumConsumptionMethodFieldUpdateOperationsInput | $Enums.ConsumptionMethod
     restaurantId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -8319,18 +8318,18 @@ export namespace Prisma {
     not?: NestedEnumOrderStatusFilter<$PrismaModel> | $Enums.OrderStatus
   }
 
-  export type EnumConsuptionMethodFilter<$PrismaModel = never> = {
-    equals?: $Enums.ConsuptionMethod | EnumConsuptionMethodFieldRefInput<$PrismaModel>
-    in?: $Enums.ConsuptionMethod[] | ListEnumConsuptionMethodFieldRefInput<$PrismaModel>
-    notIn?: $Enums.ConsuptionMethod[] | ListEnumConsuptionMethodFieldRefInput<$PrismaModel>
-    not?: NestedEnumConsuptionMethodFilter<$PrismaModel> | $Enums.ConsuptionMethod
+  export type EnumConsumptionMethodFilter<$PrismaModel = never> = {
+    equals?: $Enums.ConsumptionMethod | EnumConsumptionMethodFieldRefInput<$PrismaModel>
+    in?: $Enums.ConsumptionMethod[] | ListEnumConsumptionMethodFieldRefInput<$PrismaModel>
+    notIn?: $Enums.ConsumptionMethod[] | ListEnumConsumptionMethodFieldRefInput<$PrismaModel>
+    not?: NestedEnumConsumptionMethodFilter<$PrismaModel> | $Enums.ConsumptionMethod
   }
 
   export type OrderCountOrderByAggregateInput = {
     id?: SortOrder
     total?: SortOrder
     status?: SortOrder
-    consuptionMethod?: SortOrder
+    consumptionMethod?: SortOrder
     restaurantId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -8345,7 +8344,7 @@ export namespace Prisma {
     id?: SortOrder
     total?: SortOrder
     status?: SortOrder
-    consuptionMethod?: SortOrder
+    consumptionMethod?: SortOrder
     restaurantId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -8355,7 +8354,7 @@ export namespace Prisma {
     id?: SortOrder
     total?: SortOrder
     status?: SortOrder
-    consuptionMethod?: SortOrder
+    consumptionMethod?: SortOrder
     restaurantId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -8392,14 +8391,14 @@ export namespace Prisma {
     _max?: NestedEnumOrderStatusFilter<$PrismaModel>
   }
 
-  export type EnumConsuptionMethodWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.ConsuptionMethod | EnumConsuptionMethodFieldRefInput<$PrismaModel>
-    in?: $Enums.ConsuptionMethod[] | ListEnumConsuptionMethodFieldRefInput<$PrismaModel>
-    notIn?: $Enums.ConsuptionMethod[] | ListEnumConsuptionMethodFieldRefInput<$PrismaModel>
-    not?: NestedEnumConsuptionMethodWithAggregatesFilter<$PrismaModel> | $Enums.ConsuptionMethod
+  export type EnumConsumptionMethodWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.ConsumptionMethod | EnumConsumptionMethodFieldRefInput<$PrismaModel>
+    in?: $Enums.ConsumptionMethod[] | ListEnumConsumptionMethodFieldRefInput<$PrismaModel>
+    notIn?: $Enums.ConsumptionMethod[] | ListEnumConsumptionMethodFieldRefInput<$PrismaModel>
+    not?: NestedEnumConsumptionMethodWithAggregatesFilter<$PrismaModel> | $Enums.ConsumptionMethod
     _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedEnumConsuptionMethodFilter<$PrismaModel>
-    _max?: NestedEnumConsuptionMethodFilter<$PrismaModel>
+    _min?: NestedEnumConsumptionMethodFilter<$PrismaModel>
+    _max?: NestedEnumConsumptionMethodFilter<$PrismaModel>
   }
 
   export type ProductScalarRelationFilter = {
@@ -8755,8 +8754,8 @@ export namespace Prisma {
     set?: $Enums.OrderStatus
   }
 
-  export type EnumConsuptionMethodFieldUpdateOperationsInput = {
-    set?: $Enums.ConsuptionMethod
+  export type EnumConsumptionMethodFieldUpdateOperationsInput = {
+    set?: $Enums.ConsumptionMethod
   }
 
   export type RestaurantUpdateOneRequiredWithoutOrdersNestedInput = {
@@ -8932,11 +8931,11 @@ export namespace Prisma {
     not?: NestedEnumOrderStatusFilter<$PrismaModel> | $Enums.OrderStatus
   }
 
-  export type NestedEnumConsuptionMethodFilter<$PrismaModel = never> = {
-    equals?: $Enums.ConsuptionMethod | EnumConsuptionMethodFieldRefInput<$PrismaModel>
-    in?: $Enums.ConsuptionMethod[] | ListEnumConsuptionMethodFieldRefInput<$PrismaModel>
-    notIn?: $Enums.ConsuptionMethod[] | ListEnumConsuptionMethodFieldRefInput<$PrismaModel>
-    not?: NestedEnumConsuptionMethodFilter<$PrismaModel> | $Enums.ConsuptionMethod
+  export type NestedEnumConsumptionMethodFilter<$PrismaModel = never> = {
+    equals?: $Enums.ConsumptionMethod | EnumConsumptionMethodFieldRefInput<$PrismaModel>
+    in?: $Enums.ConsumptionMethod[] | ListEnumConsumptionMethodFieldRefInput<$PrismaModel>
+    notIn?: $Enums.ConsumptionMethod[] | ListEnumConsumptionMethodFieldRefInput<$PrismaModel>
+    not?: NestedEnumConsumptionMethodFilter<$PrismaModel> | $Enums.ConsumptionMethod
   }
 
   export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
@@ -8965,14 +8964,14 @@ export namespace Prisma {
     _max?: NestedEnumOrderStatusFilter<$PrismaModel>
   }
 
-  export type NestedEnumConsuptionMethodWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.ConsuptionMethod | EnumConsuptionMethodFieldRefInput<$PrismaModel>
-    in?: $Enums.ConsuptionMethod[] | ListEnumConsuptionMethodFieldRefInput<$PrismaModel>
-    notIn?: $Enums.ConsuptionMethod[] | ListEnumConsuptionMethodFieldRefInput<$PrismaModel>
-    not?: NestedEnumConsuptionMethodWithAggregatesFilter<$PrismaModel> | $Enums.ConsuptionMethod
+  export type NestedEnumConsumptionMethodWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.ConsumptionMethod | EnumConsumptionMethodFieldRefInput<$PrismaModel>
+    in?: $Enums.ConsumptionMethod[] | ListEnumConsumptionMethodFieldRefInput<$PrismaModel>
+    notIn?: $Enums.ConsumptionMethod[] | ListEnumConsumptionMethodFieldRefInput<$PrismaModel>
+    not?: NestedEnumConsumptionMethodWithAggregatesFilter<$PrismaModel> | $Enums.ConsumptionMethod
     _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedEnumConsuptionMethodFilter<$PrismaModel>
-    _max?: NestedEnumConsuptionMethodFilter<$PrismaModel>
+    _min?: NestedEnumConsumptionMethodFilter<$PrismaModel>
+    _max?: NestedEnumConsumptionMethodFilter<$PrismaModel>
   }
 
   export type MenuCategoryCreateWithoutRestaurantInput = {
@@ -9039,8 +9038,8 @@ export namespace Prisma {
 
   export type OrderCreateWithoutRestaurantInput = {
     total: number
-    status?: $Enums.OrderStatus
-    consuptionMethod: $Enums.ConsuptionMethod
+    status: $Enums.OrderStatus
+    consumptionMethod: $Enums.ConsumptionMethod
     createdAt?: Date | string
     updatedAt?: Date | string
     orderProducts?: OrderProductCreateNestedManyWithoutOrderInput
@@ -9049,8 +9048,8 @@ export namespace Prisma {
   export type OrderUncheckedCreateWithoutRestaurantInput = {
     id?: number
     total: number
-    status?: $Enums.OrderStatus
-    consuptionMethod: $Enums.ConsuptionMethod
+    status: $Enums.OrderStatus
+    consumptionMethod: $Enums.ConsumptionMethod
     createdAt?: Date | string
     updatedAt?: Date | string
     orderProducts?: OrderProductUncheckedCreateNestedManyWithoutOrderInput
@@ -9148,7 +9147,7 @@ export namespace Prisma {
     id?: IntFilter<"Order"> | number
     total?: FloatFilter<"Order"> | number
     status?: EnumOrderStatusFilter<"Order"> | $Enums.OrderStatus
-    consuptionMethod?: EnumConsuptionMethodFilter<"Order"> | $Enums.ConsuptionMethod
+    consumptionMethod?: EnumConsumptionMethodFilter<"Order"> | $Enums.ConsumptionMethod
     restaurantId?: StringFilter<"Order"> | string
     createdAt?: DateTimeFilter<"Order"> | Date | string
     updatedAt?: DateTimeFilter<"Order"> | Date | string
@@ -9592,8 +9591,8 @@ export namespace Prisma {
 
   export type OrderCreateWithoutOrderProductsInput = {
     total: number
-    status?: $Enums.OrderStatus
-    consuptionMethod: $Enums.ConsuptionMethod
+    status: $Enums.OrderStatus
+    consumptionMethod: $Enums.ConsumptionMethod
     createdAt?: Date | string
     updatedAt?: Date | string
     restaurant: RestaurantCreateNestedOneWithoutOrdersInput
@@ -9602,8 +9601,8 @@ export namespace Prisma {
   export type OrderUncheckedCreateWithoutOrderProductsInput = {
     id?: number
     total: number
-    status?: $Enums.OrderStatus
-    consuptionMethod: $Enums.ConsuptionMethod
+    status: $Enums.OrderStatus
+    consumptionMethod: $Enums.ConsumptionMethod
     restaurantId: string
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -9665,7 +9664,7 @@ export namespace Prisma {
   export type OrderUpdateWithoutOrderProductsInput = {
     total?: FloatFieldUpdateOperationsInput | number
     status?: EnumOrderStatusFieldUpdateOperationsInput | $Enums.OrderStatus
-    consuptionMethod?: EnumConsuptionMethodFieldUpdateOperationsInput | $Enums.ConsuptionMethod
+    consumptionMethod?: EnumConsumptionMethodFieldUpdateOperationsInput | $Enums.ConsumptionMethod
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     restaurant?: RestaurantUpdateOneRequiredWithoutOrdersNestedInput
@@ -9675,7 +9674,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     total?: FloatFieldUpdateOperationsInput | number
     status?: EnumOrderStatusFieldUpdateOperationsInput | $Enums.OrderStatus
-    consuptionMethod?: EnumConsuptionMethodFieldUpdateOperationsInput | $Enums.ConsuptionMethod
+    consumptionMethod?: EnumConsumptionMethodFieldUpdateOperationsInput | $Enums.ConsumptionMethod
     restaurantId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -9703,8 +9702,8 @@ export namespace Prisma {
   export type OrderCreateManyRestaurantInput = {
     id?: number
     total: number
-    status?: $Enums.OrderStatus
-    consuptionMethod: $Enums.ConsuptionMethod
+    status: $Enums.OrderStatus
+    consumptionMethod: $Enums.ConsumptionMethod
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -9773,7 +9772,7 @@ export namespace Prisma {
   export type OrderUpdateWithoutRestaurantInput = {
     total?: FloatFieldUpdateOperationsInput | number
     status?: EnumOrderStatusFieldUpdateOperationsInput | $Enums.OrderStatus
-    consuptionMethod?: EnumConsuptionMethodFieldUpdateOperationsInput | $Enums.ConsuptionMethod
+    consumptionMethod?: EnumConsumptionMethodFieldUpdateOperationsInput | $Enums.ConsumptionMethod
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     orderProducts?: OrderProductUpdateManyWithoutOrderNestedInput
@@ -9783,7 +9782,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     total?: FloatFieldUpdateOperationsInput | number
     status?: EnumOrderStatusFieldUpdateOperationsInput | $Enums.OrderStatus
-    consuptionMethod?: EnumConsuptionMethodFieldUpdateOperationsInput | $Enums.ConsuptionMethod
+    consumptionMethod?: EnumConsumptionMethodFieldUpdateOperationsInput | $Enums.ConsumptionMethod
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     orderProducts?: OrderProductUncheckedUpdateManyWithoutOrderNestedInput
@@ -9793,7 +9792,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     total?: FloatFieldUpdateOperationsInput | number
     status?: EnumOrderStatusFieldUpdateOperationsInput | $Enums.OrderStatus
-    consuptionMethod?: EnumConsuptionMethodFieldUpdateOperationsInput | $Enums.ConsuptionMethod
+    consumptionMethod?: EnumConsumptionMethodFieldUpdateOperationsInput | $Enums.ConsumptionMethod
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }

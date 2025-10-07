@@ -156,7 +156,7 @@ exports.Prisma.OrderScalarFieldEnum = {
   id: 'id',
   total: 'total',
   status: 'status',
-  consuptionMethod: 'consuptionMethod',
+  consumptionMethod: 'consumptionMethod',
   restaurantId: 'restaurantId',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
@@ -184,11 +184,10 @@ exports.Prisma.QueryMode = {
 exports.OrderStatus = exports.$Enums.OrderStatus = {
   PENDING: 'PENDING',
   IN_PREPARATION: 'IN_PREPARATION',
-  FINISHED: 'FINISHED',
-  CANCELLED: 'CANCELLED'
+  FINISHED: 'FINISHED'
 };
 
-exports.ConsuptionMethod = exports.$Enums.ConsuptionMethod = {
+exports.ConsumptionMethod = exports.$Enums.ConsumptionMethod = {
   TAKEAWAY: 'TAKEAWAY',
   DINE_IN: 'DINE_IN'
 };
