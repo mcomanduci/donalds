@@ -3,6 +3,7 @@ import React from 'react';
 import PageNotFound from '@/components/page-not-found';
 import { getRestaurantBySlug } from '@/data/restaurant';
 
+import Categories from './component/categories';
 import RestaurantHeader from './component/restaurant-header';
 
 interface RestaurantMenuPageProps {
@@ -33,6 +34,7 @@ const RestaurantMenuPage = async ({ params, searchParams }: RestaurantMenuPagePr
   return (
     <div>
       <RestaurantHeader restaurant={restaurant} />
+      <Categories restaurant={restaurant} />
     </div>
   );
 };
