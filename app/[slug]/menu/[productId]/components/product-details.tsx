@@ -11,6 +11,7 @@ import { formatCurrency } from '@/helpers/format-currency';
 
 import CartSheet from '../../component/cart-sheet';
 import { CartContext } from '../../contexts/cart';
+import ButtonsQuantity from './buttons-quantity';
 
 interface ProductDetailsProps {
   product: Prisma.ProductGetPayload<{
@@ -52,7 +53,7 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
           <h2 className="mt-1 text-lg font-semibold">{product.name}</h2>
           <div className="mt-2 flex items-center justify-between">
             <h3 className="text-xl font-semibold">{formatCurrency(product.price)}</h3>
-            <div className="flex items-center gap-3 text-center">
+            {/* <div className="flex items-center gap-3 text-center">
               <Button
                 variant="outline"
                 className="h-8 w-8 rounded-xl"
@@ -68,7 +69,12 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
               >
                 <ChevronRightIcon />
               </Button>
-            </div>
+            </div> */}
+            <ButtonsQuantity
+              quantity={quantity}
+              handleDecreaseQuantity={handleDecreaseQuantity}
+              handleIncreaseQuantity={handleIncreaseQuantity}
+            />
           </div>
 
           <ScrollArea className="h-full pb-2">
