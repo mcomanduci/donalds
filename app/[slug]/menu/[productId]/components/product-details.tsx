@@ -1,7 +1,6 @@
 'use client';
 
 import { Prisma } from '@prisma/client';
-import { ChevronLeftIcon, ChevronRightIcon } from 'lucide-react';
 import Image from 'next/image';
 import { useContext, useState } from 'react';
 
@@ -53,23 +52,7 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
           <h2 className="mt-1 text-lg font-semibold">{product.name}</h2>
           <div className="mt-2 flex items-center justify-between">
             <h3 className="text-xl font-semibold">{formatCurrency(product.price)}</h3>
-            {/* <div className="flex items-center gap-3 text-center">
-              <Button
-                variant="outline"
-                className="h-8 w-8 rounded-xl"
-                onClick={handleDecreaseQuantity}
-              >
-                <ChevronLeftIcon />
-              </Button>
-              <p className="w-4">{quantity}</p>
-              <Button
-                variant="destructive"
-                className="h-8 w-8 rounded-xl"
-                onClick={handleIncreaseQuantity}
-              >
-                <ChevronRightIcon />
-              </Button>
-            </div> */}
+
             <ButtonsQuantity
               quantity={quantity}
               handleDecreaseQuantity={handleDecreaseQuantity}

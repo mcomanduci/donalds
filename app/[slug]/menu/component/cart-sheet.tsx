@@ -1,6 +1,6 @@
 import { TrashIcon } from 'lucide-react';
 import Image from 'next/image';
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from '@/components/ui/sheet';
