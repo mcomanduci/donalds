@@ -58,21 +58,19 @@ const RestaurantCategories = ({ restaurant }: RestaurantCategoriesProps) => {
 
       <ScrollArea className="-mr-5 w-full p-5 px-0">
         <ScrollBar orientation="horizontal" className="hidden md:flex" />
-        <ScrollArea className="w-full pl-5">
-          <div className="flex w-max space-x-4">
-            {restaurant.menuCategories.map((category) => (
-              <Button
-                key={category.id}
-                variant={getCategoryButtonVariant(category)}
-                size="sm"
-                className={`rounded-full border text-xs font-semibold ${category.id !== selectedCategory.id && 'text-muted-foreground font-normal'}`}
-                onClick={() => handleCategorySelect(category)}
-              >
-                {category.name}
-              </Button>
-            ))}
-          </div>
-        </ScrollArea>
+        <div className="flex w-max space-x-4 px-5">
+          {restaurant.menuCategories.map((category) => (
+            <Button
+              key={category.id}
+              variant={getCategoryButtonVariant(category)}
+              size="sm"
+              className={`rounded-full border text-xs font-semibold ${category.id !== selectedCategory.id && 'text-muted-foreground font-normal'}`}
+              onClick={() => handleCategorySelect(category)}
+            >
+              {category.name}
+            </Button>
+          ))}
+        </div>
       </ScrollArea>
       <Products products={selectedCategory.products} />
     </>

@@ -1,5 +1,5 @@
-@import "tailwindcss";
-@import "tw-animate-css";
+@import 'tailwindcss';
+@import 'tw-animate-css';
 
 @custom-variant dark (&:is(.dark *));
 
@@ -36,6 +36,7 @@
   --sidebar-accent-foreground: oklch(0.3211 0 0);
   --sidebar-border: oklch(0.9558 0.0086 225.08);
   --sidebar-ring: oklch(0.3211 0 0);
+  --light-gray: oklch(0.3171 0 0);
 }
 
 .dark {
@@ -116,7 +117,11 @@
   * {
     @apply border-border outline-ring/50;
   }
+
+  html {
+    @apply h-full;
+  }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground h-full;
   }
 }
