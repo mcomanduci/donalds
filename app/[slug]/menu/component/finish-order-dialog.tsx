@@ -9,7 +9,6 @@ import { useForm } from 'react-hook-form';
 import { PatternFormat } from 'react-number-format';
 import { toast } from 'sonner';
 import { z } from 'zod';
-import { ca } from 'zod/v4/locales';
 
 import { Button } from '@/components/ui/button';
 import {
