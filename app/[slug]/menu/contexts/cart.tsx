@@ -2,7 +2,7 @@
 import { Product } from '@prisma/client';
 import { createContext, ReactNode, useState } from 'react';
 
-interface CartProduct extends Pick<Product, 'id' | 'name' | 'imageUrl' | 'price'> {
+export interface CartProduct extends Pick<Product, 'id' | 'name' | 'imageUrl' | 'price'> {
   quantity: number;
 }
 
@@ -11,6 +11,7 @@ export interface ICartContext {
   products: CartProduct[];
   toggleCart: () => void;
   addProduct: (product: CartProduct) => void;
+  decreaseProductQuantity: (productId: string) => void;
 }
 
 export const CartContext = createContext<ICartContext>({
@@ -18,6 +19,7 @@ export const CartContext = createContext<ICartContext>({
   products: [],
   toggleCart: () => {},
   addProduct: () => {},
+  decreaseProductQuantity: () => {},
 });
 
 export const CartProvider = ({ children }: { children: ReactNode }) => {
@@ -30,8 +32,8 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
 
   const addProduct = (product: CartProduct) => {
     setProducts((prev) => {
-      const productIsAlreadyInCart = prev.find((p) => p.id === product.id);
-      if (productIsAlreadyInCart) {
+      const existingProduct = prev.find((p) => p.id === product.id);
+      if (existingProduct) {
         return prev.map((p) =>
           p.id === product.id ? { ...p, quantity: p.quantity + product.quantity } : p,
         );
@@ -40,9 +42,23 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     });
   };
 
+  const decreaseProductQuantity = (productId: string) => {
+    setProducts((prev) =>
+      prev
+        .map((p) => (p.id === productId ? { ...p, quantity: p.quantity - 1 } : p))
+        .filter((p) => p.quantity > 0),
+    );
+  };
+
   return (
     <CartContext.Provider
-      value={{ isOpen: isOpen, products: products, toggleCart: toggleCart, addProduct: addProduct }}
+      value={{
+        isOpen: isOpen,
+        products: products,
+        toggleCart: toggleCart,
+        addProduct: addProduct,
+        decreaseProductQuantity: decreaseProductQuantity,
+      }}
     >
       {children}
     </CartContext.Provider>
