@@ -2,7 +2,6 @@
 
 import { ConsumptionMethod } from '@prisma/client';
 import { revalidatePath } from 'next/cache';
-import { redirect } from 'next/navigation';
 
 import { removeCpfPontuaction } from '@/helpers/cpf';
 import { db } from '@/lib/prisma';
@@ -61,10 +60,12 @@ export const createOrder = async (input: CreateOrderInput) => {
       restaurantId: restaurant.id,
     },
   });
-  revalidatePath(`/${input.slug}/orders`);
-  redirect(
-    `/${input.slug}/orders?consumptionMethod=${input.consumptionMethod}&cpf=${removeCpfPontuaction(input.customerCpf)}`,
-  );
 
-  return order;
+  revalidatePath(`/${input.slug}/orders`);
+
+  return {
+    success: true,
+    orderId: order.id,
+    redirectUrl: `/${input.slug}/orders?consumptionMethod=${input.consumptionMethod}&cpf=${removeCpfPontuaction(input.customerCpf)}`,
+  };
 };

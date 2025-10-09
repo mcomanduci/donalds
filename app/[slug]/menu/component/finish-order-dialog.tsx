@@ -3,7 +3,7 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { ConsumptionMethod } from '@prisma/client';
 import { Loader2Icon } from 'lucide-react';
-import { useParams, useSearchParams } from 'next/navigation';
+import { useParams, useRouter, useSearchParams } from 'next/navigation';
 import { useContext, useTransition } from 'react';
 import { useForm } from 'react-hook-form';
 import { PatternFormat } from 'react-number-format';
@@ -53,12 +53,13 @@ type FormSchema = z.infer<typeof formSchema>;
 
 interface FinishOrderDialogProps {
   open: boolean;
-  onOpenChange: (open: boolean) => void;
+  onOpenChange: () => void;
 }
 
 const FinishOrderDialog = ({ open, onOpenChange }: FinishOrderDialogProps) => {
-  const { products } = useContext(CartContext);
+  const { products, clearCart } = useContext(CartContext);
   const searchParams = useSearchParams();
+  const router = useRouter();
   const [isPending, startTransition] = useTransition();
   const { slug } = useParams<{ slug: string }>();
   const form = useForm<FormSchema>({
@@ -70,22 +71,32 @@ const FinishOrderDialog = ({ open, onOpenChange }: FinishOrderDialogProps) => {
     shouldUnregister: true,
   });
   const onSubmit = async (data: FormSchema) => {
-    try {
-      const consumptionMethod = searchParams.get('consumptionMethod') as ConsumptionMethod;
-      startTransition(async () => {
-        await createOrder({
+    const consumptionMethod = searchParams.get('consumptionMethod') as ConsumptionMethod;
+
+    startTransition(async () => {
+      try {
+        const result = await createOrder({
           consumptionMethod,
           customerCpf: data.cpf,
           customerName: data.name,
           products,
           slug,
         });
-        onOpenChange(false);
+
+        clearCart();
+
+        form.reset();
+
         toast.success('Pedido criado com sucesso!');
-      });
-    } catch (error) {
-      console.error(error);
-    }
+        
+        onOpenChange();
+
+        router.push(result.redirectUrl);
+      } catch (error) {
+        console.error(error);
+        toast.error('Erro ao criar pedido. Tente novamente.');
+      }
+    });
   };
 
   return (
