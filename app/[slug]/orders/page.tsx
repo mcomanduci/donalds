@@ -1,6 +1,7 @@
 import { getOrders } from '@/data/order';
 import { isValidCPF } from '@/helpers/cpf';
 
+import CartSheet from '../menu/component/cart-sheet';
 import CpfForm from './components/cpf-form';
 import OrderList from './components/order-list';
 
@@ -17,7 +18,11 @@ const ordersPage = async ({ searchParams }: OrdersPageProps) => {
     return <CpfForm />;
   }
   const orders = await getOrders(cpf);
-  return <OrderList orders={orders} />;
+  return (
+    <>
+      <OrderList orders={orders} />
+    </>
+  );
 };
 
 export default ordersPage;

@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useParams, useSearchParams } from 'next/navigation';
 
+import { ScrollArea } from '@/components/ui/scroll-area';
 import { formatCurrency } from '@/helpers/format-currency';
 
 interface ProductsProps {
@@ -15,7 +16,7 @@ const Products = ({ products }: ProductsProps) => {
   const consumptionMethod = searchParams.get('consumptionMethod');
 
   return (
-    <div className="space-y-3">
+    <div className="pb-18 space-y-3">
       {products.map((product) => (
         <Link
           href={`/${slug}/menu/${product.id}?consumptionMethod=${consumptionMethod}`}

@@ -1,11 +1,13 @@
 import { Prisma } from '@prisma/client';
-import { ChevronLeftIcon, ScrollTextIcon } from 'lucide-react';
+import { ScrollTextIcon } from 'lucide-react';
 import Image from 'next/image';
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { formatCurrency } from '@/helpers/format-currency';
+
+import OrderHeader from './order-header';
 
 interface OrderListProps {
   orders: Prisma.OrderGetPayload<{
@@ -19,9 +21,7 @@ interface OrderListProps {
 const OrderList = ({ orders }: OrderListProps) => {
   return (
     <div className="space-y-6 p-6">
-      <Button size="icon" variant="ghost" className="mb-4 p-0">
-        <ChevronLeftIcon />
-      </Button>
+      <OrderHeader />
 
       <div className="flex items-center gap-3">
         <ScrollTextIcon />
