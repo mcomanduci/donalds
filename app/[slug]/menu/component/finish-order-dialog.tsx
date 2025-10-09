@@ -53,7 +53,7 @@ type FormSchema = z.infer<typeof formSchema>;
 
 interface FinishOrderDialogProps {
   open: boolean;
-  onOpenChange: () => void;
+  onOpenChange: (open: boolean) => void;
 }
 
 const FinishOrderDialog = ({ open, onOpenChange }: FinishOrderDialogProps) => {
@@ -80,7 +80,7 @@ const FinishOrderDialog = ({ open, onOpenChange }: FinishOrderDialogProps) => {
           products,
           slug,
         });
-        onOpenChange();
+        onOpenChange(false);
         toast.success('Pedido criado com sucesso!');
       });
     } catch (error) {
